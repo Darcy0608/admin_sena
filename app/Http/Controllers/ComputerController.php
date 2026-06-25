@@ -11,15 +11,11 @@ class ComputerController extends Controller
         return view('computer.create');
     }
 
+
     public function store(Request $request){
 
-        $computer = new Computer();
+        $computer = Computer::create($request->all());
         
-        $computer->number=$request->number;
-        $computer->brand=$request->brand;
-
-        $computer->save();
-
         return $computer;
     }
 }

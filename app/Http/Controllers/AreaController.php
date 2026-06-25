@@ -11,14 +11,12 @@ class AreaController extends Controller
         return view('area.create');
     }
 
+    
     public function store(Request $request){
 
-        $area = new Area();
-        
-        $area->name=$request->name;
-
-        $area->save();
+        $area = Area::create($request->all());
 
         return $area;
+    
     }
 }

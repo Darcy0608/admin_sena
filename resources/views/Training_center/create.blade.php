@@ -5,7 +5,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Registrar Centro de Formación</h1>
+    
+    <h1>Formulario Registrar Centro de Formación</h1>
     
     <form action="{{ route('training_center.store') }}" method="POST">
 
@@ -20,9 +21,9 @@
         <br><br>
 
         <label>
-        Ubicación:
-        <br>
-        <input type="text" name="location">
+            Ubicación:
+            <br>
+            <input type="text" name="location">
         </label>
 
         <br><br>

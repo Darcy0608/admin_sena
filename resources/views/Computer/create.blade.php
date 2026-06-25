@@ -5,7 +5,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Registrar Computador</h1>
+    
+    <h1>Formulario Registrar Computador</h1>
     
     <form action="{{ route('computer.store') }}" method="POST">
 
@@ -16,15 +17,13 @@
             <br>
             <input type="text" name="number">
         </label>
-
         <br><br>
 
         <label>
-        Marca:
-        <br>
-        <input type="text" name="brand">
+            Marca:
+            <br>
+            <input type="text" name="brand">
         </label>
-
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

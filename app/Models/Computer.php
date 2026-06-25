@@ -9,8 +9,17 @@ class Computer extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'number',
+        'brand',
+        ];
+
+        
+
       public function apprentices()
     {
         return $this->hasMany(Apprentice::class);
     }
+    
+    
 }

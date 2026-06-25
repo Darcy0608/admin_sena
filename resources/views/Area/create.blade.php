@@ -5,6 +5,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h1>Formulario Area</h1>
     <form action="{{ route('area.store') }}" method="POST">
 
         @csrf
@@ -14,7 +16,6 @@
             <br>
             <input type="text" name="name">
         </label>
-
         <br><br>
 
         <button type="submit">Enviar Formulario</button>
