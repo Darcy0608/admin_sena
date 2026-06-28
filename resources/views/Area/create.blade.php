@@ -1,10 +1,6 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
     <h1>Formulario Area</h1>
     <form action="{{ route('area.store') }}" method="POST">
@@ -18,8 +14,8 @@
         </label>
         <br><br>
 
-        <button type="submit">Enviar Formulario</button>
-
+        <button type="submit" class="btn btn-secondary">Enviar Formulario</button>
+        
     </form>
-</body>
-</html>
+
+    @endsection
