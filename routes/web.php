@@ -27,24 +27,30 @@ Route::get('/', function () {
 // Area
 Route::get('area/create', [AreaController::class, 'create']);
 Route::post('area/store', [AreaController::class, 'store'])->name('area.store');
+Route::get('area/index',[AreaController::class,'index'])->name('area.index');
 
 // Computer
 Route::get('computer/create', [ComputerController::class, 'create']);
 Route::post('computer/store', [ComputerController::class, 'store'])->name('computer.store');
+Route::get('computer/index',[ComputerController::class,'index'])->name('computer.index');
 
 // Training_center
 Route::get('training_center/create', [TrainingCenterController::class, 'create']);
 Route::post('training_center/store', [TrainingCenterController::class, 'store'])->name('training_center.store');
+Route::get('training_center/index',[TrainingCenterController::class,'index'])->name('training_center.index');
 
 // Couse
 Route::get('course/create', [CourseController::class, 'create']);
 Route::post('course/store', [CourseController::class, 'store'])->name('course.store');
+Route::get('course/index',[CourseController::class,'index'])->name('course.index');
 
 // Apprentice
 Route::get('apprentice/create', [ApprenticeController::class, 'create']);
 Route::post('apprentice/store', [ApprenticeController::class, 'store'])->name('apprentice.store');
+Route::get('apprentice/index',[ApprenticeController::class,'index'])->name('apprentice.index');
 
 
 // Teacher
 Route::get('teacher/create', [TeacherController::class, 'create']);
 Route::post('teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
+Route::get('tecaher/index',[TeacherController::class,'index'])->name('teacher.index');

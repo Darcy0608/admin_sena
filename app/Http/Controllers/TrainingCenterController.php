@@ -7,6 +7,13 @@ use App\Models\Training_center;
 
 class TrainingCenterController extends Controller
 {
+    public function index(){
+        $training_centers=Training_center::all();
+
+        return view('training_center.index', compact('training_centers'));
+    }
+
+
     public function create(){
         return view('training_center.create');
     }
