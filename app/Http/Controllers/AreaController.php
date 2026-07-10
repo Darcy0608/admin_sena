@@ -24,6 +24,14 @@ class AreaController extends Controller
         $area = Area::create($request->all());
 
         return $area;
-    
+    }
+
+
+
+    public function show ($id){
+
+        $area = Area::find($id);
+         
+        return view('area.show',compact('area'));
     }
 }

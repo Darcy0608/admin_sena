@@ -16,6 +16,7 @@ class ComputerController extends Controller
 
 
     public function create(){
+        
         return view('computer.create');
     }
 
@@ -25,5 +26,14 @@ class ComputerController extends Controller
         $computer = Computer::create($request->all());
         
         return $computer;
+    }
+
+
+
+    public function show ($id){
+
+        $computer = Computer::find($id);
+         
+        return view('computer.show',compact('computer'));
     }
 }

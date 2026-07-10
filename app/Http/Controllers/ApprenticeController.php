@@ -17,7 +17,6 @@ class ApprenticeController extends Controller
 
 
 
-
     public function create(){
 
         $courses = Course::all();
@@ -27,11 +26,21 @@ class ApprenticeController extends Controller
     }
 
 
+
     public function store(Request $request){
 
         $apprentice = Apprentice::create($request->all());
 
         return $apprentice;
-    
     }
+
+
+
+    public function show ($id){
+
+        $apprentice=Apprentice::find($id);
+         
+        return view('apprentice.show',compact('apprentice'));
+    }
+
 }

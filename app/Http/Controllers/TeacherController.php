@@ -10,7 +10,7 @@ use App\Models\Training_center;
 class TeacherController extends Controller
 {
     public function index(){
-        $teachers=Teachers::all();
+        $teachers=Teacher::all();
 
         return view('teacher.index', compact('teachers'));
     }
@@ -30,6 +30,14 @@ class TeacherController extends Controller
         $teacher = Teacher::create($request->all());
 
         return $teacher;
-    
+    }
+
+
+
+    public function show ($id){
+
+        $teacher = Teacher::find($id);
+         
+        return view('teacher.show',compact('teacher'));
     }
 }

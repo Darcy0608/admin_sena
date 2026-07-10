@@ -41,21 +41,21 @@
                 <div class="mb-3">
                     <label class="fw-bold">Nombre</label>
                     <div class="form-control">
-                        {{ $$apprentice['name'] }}
+                        {{ $apprentice['name'] }}
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="fw-bold">Email</label>
                     <div class="form-control">
-                        {{ $$apprentice['email'] }}
+                        {{ $apprentice['email'] }}
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="fw-bold">Numero de Celular</label>
                     <div class="form-control">
-                        {{ $$apprentice['cell_number'] }}
+                        {{ $apprentice['cell_number'] }}
                     </div>
                 </div>
 
@@ -100,6 +100,7 @@
              </a> --}}
 
         </div>
+        <br>
 
 
     </div>

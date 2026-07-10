@@ -2,6 +2,7 @@
 
 @section('content')
     <h1>Lista de Aprendices</h1>
+    <br>
 
     <div class ="container">
         <table id="idApprentice" class="table table-striped table-bordered" style="width:100%">
@@ -13,32 +14,27 @@
                     <th>Cell_number</th>
                     <th>Course_id</th>
                     <th>Computer_id</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($apprentices as $apprentice)
                     <tr>
-                        <br>
                         <td>{{ $apprentice->id }}</td>
                         <td>{{ $apprentice->name }}</td>
                         <td>{{ $apprentice->email }}</td>
                         <td>{{ $apprentice->cell_number }}</td>
-                        <td>{{ $product->course_id }}</td>
-                        <td>{{ $product->computer_id }}</td>
+                        <td>{{ $apprentice->course_id }}</td>
+                        <td>{{ $apprentice->computer_id }}</td>
                         <td><a href="{{ route('apprentice.show', $apprentice->id) }}">Mostrar</a></td>
-
-                        <br>
 
                     </tr>
                 @endforeach
 
             </tbody>
-
         </table>
-
+        <br>
     </div>
-
-{{$apprentices}}
 
 
 @endsection
