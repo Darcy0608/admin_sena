@@ -59,11 +59,6 @@
                     </div>
                 </div>
 
-                <div class="row">
-
-
-                </div>
-
                 <hr>
 
                 <div class="row">
@@ -81,23 +76,14 @@
                             {{ \Carbon\Carbon::parse($apprentice['updated_at'])->format('d/m/Y H:i') }}
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="d-flex justify-content-end mt-4">
-
-            <a href="{{ url()->previous() }}" class="btn btn-secondary me-2">
-                <i class="bi bi-arrow-left"></i> Volver
-            </a>
-
-            {{-- Si prefieres regresar a una ruta específica --}}
-            {{-- <a href="{{ route('products.index') }}" class="btn btn-secondary">
-            <i class="bi bi-arrow-left"></i> Volver
-             </a> --}}
+            <br>
+            <a href="{{ route('apprentice.index') }}" class="btn btn-success mb-3">
+            <i class="bi bi-arrow-left"></i> Volver </a>
 
         </div>
         <br>

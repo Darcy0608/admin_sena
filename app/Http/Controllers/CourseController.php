@@ -34,10 +34,42 @@ class CourseController extends Controller
 
 
 
-    public function show ($id){
+    public function show(Course $course){
 
-        $course = Course::find($id);
-         
-        return view('course.show',compact('course'));
+    //$course = Course::find($id);
+
+    return view('course.show', compact('course'));
+    }
+
+
+
+    public function edit(Course $course){
+
+    //Encuentro el Curso
+    return view('course.edit', compact('course'));
+    }
+
+
+
+    public function update(Request $request, Course $course){
+
+        $course->course_number = $request->course_number;
+        $course->day = $request->day;
+        $course->area_id = $request->area_id;
+        $course->training_center_id = $request->training_center_id;
+        $course->save();
+
+        return redirect()->route('course.index');
+    }
+
+
+
+    
+
+    public function destroy(Course $course){
+
+        $course->delete();
+
+        return redirect()->route('course.index');
     }
 }

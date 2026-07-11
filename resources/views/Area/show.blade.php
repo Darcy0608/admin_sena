@@ -6,9 +6,7 @@
     <div class="card shadow-lg border-0">
 
         <div class="card-header bg-primary text-white">
-            <h3 class="mb-0">
-                {{ $area['name'] }}
-            </h3>
+            <h3 class="mb-0">{{ $area['name'] }}</h3>
         </div>
 
         <div class="card-body">
@@ -54,7 +52,8 @@
 
     <div class="d-flex justify-content-end mt-4">
 
-        <a href="{{ route('area.index') }}" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver </a>
+        <a href="{{ route('area.index') }}" class="btn btn-success"><i class="bi bi-arrow-left"></i> Volver </a>
+        
 
     </div>
     <br>

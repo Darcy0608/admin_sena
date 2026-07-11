@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>Formulario Aprendices</h1>
-    <form action="{{ route('apprentice.store') }}" method="POST">
+    <form action="{{ route('apprentice.store') }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -52,7 +52,7 @@
 
         <br><br>
 
-        <button type="submit" class="btn btn-secondary">Enviar Formulario</button>
+        <button type="submit" class="btn btn-success">Enviar Formulario</button>
 
     </form>
 

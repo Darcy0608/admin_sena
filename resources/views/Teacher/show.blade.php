@@ -24,24 +24,6 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label class="fw-bold">Nombre</label>
-                    <div class="form-control">
-                        {{ $teacher['name'] }}
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="mb-3">
-                <label class="fw-bold">Email</label>
-                <div class="form-control">
-                    {{ $teacher['email'] }}
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-6 mb-3">
                     <label class="fw-bold">Área</label>
                     <div class="form-control">
                         {{ $teacher['area_id'] }}
@@ -55,6 +37,21 @@
                     </div>
                 </div>
 
+            </div>
+
+            {{-- CAMBIO: "Nombre" se mueve aquí, igual que en Apprentice. --}}
+            <div class="mb-3">
+                <label class="fw-bold">Nombre</label>
+                <div class="form-control">
+                    {{ $teacher['name'] }}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="fw-bold">Email</label>
+                <div class="form-control">
+                    {{ $teacher['email'] }}
+                </div>
             </div>
 
             <hr>
@@ -74,20 +71,18 @@
                         {{ \Carbon\Carbon::parse($teacher['updated_at'])->format('d/m/Y H:i') }}
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div class="d-flex justify-content-end mt-4">
 
-        <a href="{{ route('teacher.index') }}" class="btn btn-secondary">
+        <a href="{{ route('teacher.index') }}" class="btn btn-success">
             <i class="bi bi-arrow-left"></i> Volver
         </a>
 
     </div>
+
     <br>
 
 </div>

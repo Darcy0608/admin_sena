@@ -36,11 +36,30 @@ class ApprenticeController extends Controller
 
 
 
-    public function show ($id){
+    public function show (Apprentice $apprentice){
 
-        $apprentice=Apprentice::find($id);
+        //$apprentice=Apprentice::find($id);
          
         return view('apprentice.show',compact('apprentice'));
     }
 
+
+
+    public function edit(Apprentice $apprentice){
+        
+        //Encuentro el Aprendriz
+        return view('apprentice.edit', compact('apprentice'));
+    }
+
+
+
+    public function update(Request $request, Apprentice $apprentice){
+        
+        $apprentice->name = $request->name;
+        $apprentice->email = $request->email;
+        $apprentice->cell_number = $request->cell_number;
+        $apprentice->save();
+
+        return redirect()->route('apprentice.index');
+        }
 }

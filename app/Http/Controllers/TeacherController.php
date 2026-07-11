@@ -34,10 +34,40 @@ class TeacherController extends Controller
 
 
 
-    public function show ($id){
+    public function show(Teacher $teacher){
 
-        $teacher = Teacher::find($id);
-         
-        return view('teacher.show',compact('teacher'));
+    //$teacher = Teacher::find($id);
+
+    return view('teacher.show', compact('teacher'));
+    }
+
+
+
+    public function edit(Teacher $teacher){
+
+    //Encuentro el Instructor
+    return view('teacher.edit', compact('teacher'));
+    }
+
+
+
+    public function update(Request $request, Teacher $teacher){
+
+        $teacher->name = $request->name;
+        $teacher->email = $request->email;
+        $teacher->area_id = $request->area_id;
+        $teacher->training_center_id = $request->training_center_id;
+        $teacher->save();
+
+        return redirect()->route('teacher.index');
+    }
+
+
+    
+    public function destroy(Teacher $teacher){
+
+        $teacher->delete();
+
+        return redirect()->route('teacher.index');
     }
 }

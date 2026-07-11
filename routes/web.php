@@ -23,37 +23,60 @@ use App\Http\Controllers\TeacherController;
 
 
 // Area
-Route::get('area/create', [AreaController::class, 'create']);
+Route::get('area/create', [AreaController::class, 'create'])->name('area.create');
 Route::post('area/store', [AreaController::class, 'store'])->name('area.store');
 Route::get('area/index',[AreaController::class,'index'])->name('area.index');
-Route::get('area/show/{id}', [AreaController::class, 'show'])->name('area.show');
+Route::get('area/show/{area}', [AreaController::class, 'show'])->name('area.show');
+Route::put('area/{area}',[AreaController::class,'update'])->name('area.update');
+Route::delete('area/{area}',[AreaController::class,'destroy'])->name('area.destroy');
+Route::get('area/{area}/editar',[AreaController::class,'edit'])->name('area.edit');
+
 
 // Computer
-Route::get('computer/create', [ComputerController::class, 'create']);
+Route::get('computer/create', [ComputerController::class, 'create'])->name('computer.create');
 Route::post('computer/store', [ComputerController::class, 'store'])->name('computer.store');
 Route::get('computer/index',[ComputerController::class,'index'])->name('computer.index');
-Route::get('computer/show/{id}', [ComputerController::class, 'show'])->name('computer.show');
+Route::get('computer/show/{computer}', [ComputerController::class, 'show'])->name('computer.show');
+Route::put('computer/{computer}',[ComputerController::class,'update'])->name('computer.update');
+Route::delete('computer/{computer}',[ComputerController::class,'destroy'])->name('computer.destroy');
+Route::get('computer/{computer}/editar',[ComputerController::class,'edit'])->name('computer.edit');
+
 
 // Training_center
-Route::get('training_center/create', [TrainingCenterController::class, 'create']);
+Route::get('training_center/create', [TrainingCenterController::class, 'create'])->name('training_center.create');
 Route::post('training_center/store', [TrainingCenterController::class, 'store'])->name('training_center.store');
 Route::get('training_center/index',[TrainingCenterController::class,'index'])->name('training_center.index');
-Route::get('training_center/show/{id}', [TrainingCenterController::class, 'show'])->name('training_center.show');
+Route::get('training_center/show/{training_center}', [TrainingCenterController::class, 'show'])->name('training_center.show');
+Route::put('training_center/{training_center}',[TrainingCenterController::class,'update'])->name('training_center.update');
+Route::delete('training_center/{training_center}',[TrainingCenterController::class,'destroy'])->name('training_center.destroy');
+Route::get('training_center/{training_center}/editar',[TrainingCenterController::class,'edit'])->name('training_center.edit');
 
-// Couse
-Route::get('course/create', [CourseController::class, 'create']);
+
+// Course
+Route::get('course/create', [CourseController::class, 'create'])->name('course.create');
 Route::post('course/store', [CourseController::class, 'store'])->name('course.store');
 Route::get('course/index',[CourseController::class,'index'])->name('course.index');
-Route::get('course/show/{id}', [CourseController::class, 'show'])->name('course.show');
+Route::get('course/show/{course}', [CourseController::class, 'show'])->name('course.show');
+Route::put('course/{course}',[CourseController::class,'update'])->name('course.update');
+Route::delete('course/{course}',[CourseController::class,'destroy'])->name('course.destroy');
+Route::get('course/{course}/editar',[CourseController::class,'edit'])->name('course.edit');
+
 
 // Apprentice
-Route::get('apprentice/create', [ApprenticeController::class, 'create']);
+Route::get('apprentice/create', [ApprenticeController::class, 'create'])->name('apprentice.create');
 Route::post('apprentice/store', [ApprenticeController::class, 'store'])->name('apprentice.store');
 Route::get('apprentice/index',[ApprenticeController::class,'index'])->name('apprentice.index');
-Route::get('apprentice/show/{id}',[ApprenticeController::class,'show'])->name('apprentice.show');
+Route::get('apprentice/show/{apprentice}',[ApprenticeController::class,'show'])->name('apprentice.show');
+Route::put('apprentice/{apprentice}',[ApprenticeController::class,'update'])->name('apprentice.update');
+Route::delete('apprentice/{apprentice}',[ApprenticeController::class,'destroy'])->name('apprentice.destroy');
+Route::get('apprentice/{apprentice}/editar',[ApprenticeController::class,'edit'])->name('apprentice.edit');
+
 
 // Teacher
-Route::get('teacher/create', [TeacherController::class, 'create']);
+Route::get('teacher/create', [TeacherController::class, 'create'])->name('teacher.create');
 Route::post('teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
 Route::get('teacher/index',[TeacherController::class,'index'])->name('teacher.index');
-Route::get('teacher/show/{id}', [TeacherController::class, 'show'])->name('teacher.show');
+Route::get('teacher/show/{teacher}', [TeacherController::class, 'show'])->name('teacher.show');
+Route::put('teacher/{teacher}',[TeacherController::class,'update'])->name('teacher.update');
+Route::delete('teacher/{teacher}',[TeacherController::class,'destroy'])->name('teacher.destroy');
+Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('teacher.edit');

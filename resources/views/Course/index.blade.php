@@ -16,11 +16,13 @@
                 <th>Day</th>
                 <th>Area</th>
                 <th>Training Center</th>
-                <th>Acción</th>
+                <th colspan="3">Acción</th>
             </tr>
         </thead>
 
         <tbody>
+            <a href="{{ route('course.create') }}" class="btn btn-success mb-3">
+                <i class="bi bi-plus-circle"></i> Nuevo Curso </a>
 
             @foreach ($courses as $course)
 
@@ -36,6 +38,17 @@
                         <a href="{{ route('course.show', $course->id) }}">Mostrar</a>
                     </td>
 
+                    <td>
+                        <a href="{{ route('course.edit', $course->id) }}">Editar</a>
+                    </td>
+
+                    <td>
+                        <form action="{{ route('course.destroy', $course->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
 
             @endforeach

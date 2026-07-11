@@ -6,10 +6,9 @@
         <div class="row">
             <div class="col-md-6">
                 <h5>Contacto</h5>
-                <p>Academia Rosas de Cristal<br>
-                Dirección: Bogotá<br>
-                Teléfono: +57 354 8746954<br>
-                Correo electrónico: rositas@gmail.com</p>
+                <p>Teléfono: +57 300 0000000 <br>
+                Correo: admin34@example.com</p>
+                
             </div>
             <div class="col-md-6">
                 <h5>Síguenos</h5>
@@ -21,6 +20,6 @@
             </div>
         </div>
         <hr>
-        <p class="text-center">&copy; {{ date('Y') }} Derechos Recervados</p>
+        <p class="text-center">&copy; {{ date('Y') }} Sistema de Administración SENA / Versión 1.0</p>
     </div>
 </footer>

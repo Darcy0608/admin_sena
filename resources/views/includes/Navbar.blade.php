@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #323e9b">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16780c">
     <div class="container-fluid">
 
         <img src="https://www.sena.edu.co/Paginas/img/logo-sena-blanco.png" alt="logo_sena" width="50" height="50">
