@@ -64,8 +64,7 @@ class CourseController extends Controller
 
 
 
-    
-
+    //Destroy encuentra el registro para luego eliminarlo..
     public function destroy(Course $course){
 
         $course->delete();

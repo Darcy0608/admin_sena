@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16780c">
     <div class="container-fluid">
 
-        <img src="https://www.sena.edu.co/Paginas/img/logo-sena-blanco.png" alt="logo_sena" width="50" height="50">
+        <a href="{{ route('home') }}">
+        <img src="https://www.sena.edu.co/Paginas/img/logo-sena-blanco.png" alt="logo sena" width="50" height="60">
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -16,11 +18,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ url('area/create') }}">Área</a>
+                    <a class="nav-link" href="{{ url('area/create') }}">Área</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('training_center/create') }}">Centro</a>
+                    <a class="nav-link" href="{{ url('training_center/create') }}">Centro de Formación</a>
                 </li>
 
                 <li class="nav-item">

@@ -62,4 +62,13 @@ class ApprenticeController extends Controller
 
         return redirect()->route('apprentice.index');
         }
+    
+        
+
+    //Destroy encuentra el registro para luego eliminarlo..
+    public function destroy(Apprentice $apprentice)
+    {
+        $apprentice->delete();
+        return redirect()->route('apprentice.index');
+    }
 }

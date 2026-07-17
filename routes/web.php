@@ -7,6 +7,8 @@ use App\Http\Controllers\TrainingCenterController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +82,7 @@ Route::get('teacher/show/{teacher}', [TeacherController::class, 'show'])->name('
 Route::put('teacher/{teacher}',[TeacherController::class,'update'])->name('teacher.update');
 Route::delete('teacher/{teacher}',[TeacherController::class,'destroy'])->name('teacher.destroy');
 Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('teacher.edit');
+
+
+//  Home
+Route::get('/', [HomeController::class, 'index'])->name('home');

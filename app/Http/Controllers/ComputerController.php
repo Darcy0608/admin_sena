@@ -59,7 +59,7 @@ class ComputerController extends Controller
     }
 
 
-
+    //Destroy encuentra el registro para luego eliminarlo..
     public function destroy(Computer $computer){
 
         $computer->delete();
