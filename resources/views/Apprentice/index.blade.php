@@ -29,8 +29,9 @@
                     <td>{{ $apprentice->name }}</td>
                     <td>{{ $apprentice->email }}</td>
                     <td>{{ $apprentice->cell_number }}</td>
-                    <td>{{ $apprentice->course_id }}</td>
-                    <td>{{ $apprentice->computer_id }}</td>
+                    
+                    <td>{{ $apprentice->course_number }}</td>
+                    <td>{{ $apprentice->computer->brand }}</td>
 
                     <td>
                         <a href="{{ route('apprentice.show', $apprentice->id) }}">Mostrar</a>

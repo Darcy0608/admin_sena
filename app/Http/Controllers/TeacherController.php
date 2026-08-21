@@ -10,7 +10,7 @@ use App\Models\Training_center;
 class TeacherController extends Controller
 {
     public function index(){
-        $teachers=Teacher::all();
+        $teachers=Teacher::$courses=Course::with(['area', 'training_center'])->get();
 
         return view('teacher.index', compact('teachers'));
     }

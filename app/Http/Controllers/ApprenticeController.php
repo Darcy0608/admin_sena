@@ -9,8 +9,9 @@ use App\Models\Course;
 
 class ApprenticeController extends Controller
 {
+    //Traemos los aprendices y de una vez el curso y el computador
     public function index(){
-        $apprentices=Apprentice::all();
+        $apprentices = Apprentice::with(['course', 'computer'])->get();
 
         return view('apprentice.index', compact('apprentices'));
     }
@@ -58,6 +59,9 @@ class ApprenticeController extends Controller
         $apprentice->name = $request->name;
         $apprentice->email = $request->email;
         $apprentice->cell_number = $request->cell_number;
+
+        $apprentice->course_id = $request->course_id;
+        $apprentice->computer_id = $request->computer_id;
         $apprentice->save();
 
         return redirect()->route('apprentice.index');

@@ -31,9 +31,10 @@
         <label for="course_id">Curso: </label>
         <select name="course_id" id="course_id" class="form-control">
             <option value="">Selecione un curso</option>
+
             @foreach($courses as $course)
                 <option value="{{$course->id}}">
-                    {{$course->course_number}}
+                    {{$course->name}}
                 </option>
             @endforeach
         </select>
@@ -44,7 +45,7 @@
             <option value="">Selecione un equipo</option>
             @foreach($computers as $computer)
                 <option value="{{$computer->id}}">
-                    {{$computer->number}}
+                    {{$computer->name}}
                 </option>
             @endforeach
 

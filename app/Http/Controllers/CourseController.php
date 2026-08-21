@@ -9,13 +9,16 @@ use App\Models\Area;
 
 class CourseController extends Controller
 {
+    //Se obtienen todos los CURSOS de la tabla courses
     public function index(){
-        $courses=Course::all();
-
+        $courses=Course::with(['area', 'training_center'])->get();
+        
         return view('course.index', compact('courses'));
     }
 
 
+    
+    //Devuelve todas las AREAS y todos los CENTROS DE FORMACION para llenar los select del formulario
     public function create(){
 
         $training_centers = Training_center::all();
@@ -25,32 +28,34 @@ class CourseController extends Controller
     }
 
 
+
+    //Guardar un NUEVO CURSO
     public function store(Request $request){
 
         $course = Course::create($request->all());
 
-        return $course;
+        return redirect()->route('course.index');
     }
 
 
 
+    // Mostrar un SOLO CURSO
     public function show(Course $course){
-
     //$course = Course::find($id);
-
     return view('course.show', compact('course'));
     }
 
 
 
+    //Obtener un curso especifico para mostrarlo en el formulario editar
     public function edit(Course $course){
-
     //Encuentro el Curso
     return view('course.edit', compact('course'));
     }
 
 
 
+    //Modificar un curso existente
     public function update(Request $request, Course $course){
 
         $course->course_number = $request->course_number;
@@ -63,8 +68,7 @@ class CourseController extends Controller
     }
 
 
-
-    //Destroy encuentra el registro para luego eliminarlo..
+    // Destroy eliminar un curso
     public function destroy(Course $course){
 
         $course->delete();

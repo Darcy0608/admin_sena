@@ -16,8 +16,7 @@ class Computer extends Model
 
         
 
-      public function apprentices()
-    {
+      public function apprentices(){
         return $this->hasMany(Apprentice::class);
     }
     

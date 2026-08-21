@@ -27,7 +27,7 @@
             @foreach ($teachers as $teacher)
 
                 <tr>
-
+                    
                     <td>{{ $teacher->id }}</td>
                     <td>{{ $teacher->name }}</td>
                     <td>{{ $teacher->email }}</td>

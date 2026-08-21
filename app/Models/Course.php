@@ -18,23 +18,19 @@ class Course extends Model
 
     
 
-    public function area()
-    {
+    public function area(){
         return $this->belongsTo(Area::class);
     }
 
-    public function trainingCenter()
-    {
+    public function trainingCenter(){
         return $this->belongsTo(TrainingCenter::class);
     }
 
-    public function apprentices()
-    {
+    public function apprentices(){
         return $this->hasMany(Apprentice::class);
     }
 
-    public function teachers()
-    {
+    public function teachers(){
         return $this->belongsToMany(Teacher::class);
     }
 }

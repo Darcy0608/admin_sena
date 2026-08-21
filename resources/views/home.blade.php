@@ -40,6 +40,43 @@
         font-size: 1.2rem;
         color: white;
     }
+
+    .carousel-img{
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    }
+
+    /* ANUNCIOS */
+    .anuncio-card{
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .anuncio-card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+    }
+
+    .anuncio-card img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .anuncio-card .card-body{
+        padding: 20px;
+    }
+
+    .titulo-anuncios{
+        font-weight: bold;
+        color: #16780c;
+    }
 </style>
 
 <h1 class="text-center mb-4">
@@ -57,7 +94,7 @@
     <div class="carousel-inner">
 
         <div class="carousel-item active">
-            <img src="{{ asset('img/img01.jpg') }}" class="d-block w-100" style="height:550px; object-fit:cover;" alt="Inicio">
+            <img src="{{ asset('img/img01.jpg') }}" class="carousel-img"  alt="Inicio">
 
             <div class="carousel-caption d-none d-md-block">
                 <div class="contenido">
@@ -100,6 +137,121 @@
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
+
+</div>
+
+<br><br>
+
+{{-- ANUNCIOS --}}
+
+<div class="container my-5">
+
+    <div class="text-center mb-4">
+
+        <h2 class="titulo-anuncios">
+            <i class="bi bi-megaphone-fill"></i>
+             Anuncios
+        </h2>
+
+        <p class="text-muted">
+            Conoce las novedades y noticias más importantes del SENA.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        {{-- ANUNCIO 1 --}}
+        <div class="col-md-4">
+            <div class="card anuncio-card h-100 shadow">
+
+                <img src="{{ asset('img/anuncio_cursos.jpg') }}"
+                     alt="Nuevo curso">
+
+                <div class="card-body">
+
+                    <span class="badge bg-success mb-2"> Cursos </span>
+
+                    <h5 class="card-title"> Nuevos cursos disponibles </h5>
+
+                    <p class="card-text text-muted"> Conoce los nuevos cursos disponibles y consulta 
+                        la información de cada programa de formación.
+                    </p>
+
+                    <a href="{{ route('course.index') }}"
+                       class="btn btn-success">
+                        Ver más →
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+        {{-- ANUNCIO 2 --}}
+        <div class="col-md-4">
+            <div class="card anuncio-card h-100 shadow">
+
+                <img src="{{ asset('img/anuncio_registro.jpg') }}"
+                     alt="Aprendices">
+
+                <div class="card-body">
+
+                    <span class="badge bg-primary mb-2">
+                        Aprendices
+                    </span>
+
+                    <h5 class="card-title">
+                        Registro de aprendices
+                    </h5>
+
+                    <p class="card-text text-muted">
+                        Consulta y administra la información de los
+                        aprendices registrados en el sistema.
+                    </p>
+
+                    <a href="{{ route('apprentice.index') }}"
+                       class="btn btn-success">
+                        Ver más →
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+        {{-- ANUNCIO 3 --}}
+        <div class="col-md-4">
+            <div class="card anuncio-card h-100 shadow">
+
+                <img src="{{ asset('img/anuncio_instructores.jpg') }}"
+                     alt="Instructores">
+
+                <div class="card-body">
+
+                    <span class="badge bg-warning text-dark mb-2">
+                        Instructores
+                    </span>
+
+                    <h5 class="card-title">
+                        Administración de instructores
+                    </h5>
+
+                    <p class="card-text text-muted">
+                        Consulta la información de los instructores
+                        registrados en el sistema.
+                    </p>
+
+                    <a href="{{ route('teacher.index') }}"
+                       class="btn btn-success">
+                        Ver más →
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
