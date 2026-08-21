@@ -10,7 +10,7 @@ use App\Models\Training_center;
 class TeacherController extends Controller
 {
     public function index(){
-        $teachers=Teacher::$courses=Course::with(['area', 'training_center'])->get();
+        $teachers=Teacher::with(['area', 'trainingCenter'])->get();
 
         return view('teacher.index', compact('teachers'));
     }
@@ -70,4 +70,4 @@ class TeacherController extends Controller
 
         return redirect()->route('teacher.index');
     }
-}
+ }

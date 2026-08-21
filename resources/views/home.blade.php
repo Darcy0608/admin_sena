@@ -255,6 +255,35 @@
 
 </div>
 
+<div id="quienes-somos" class="container my-5">
+
+    <div class="text-center mb-4">
+        <h2 class="titulo-anuncios">¿Qué es Admin SENA?</h2>
+        
+        <p class="text-muted">
+            Admin SENA es un sistema web creado para facilitar la administración
+            y gestión de la información del SENA.
+        </p>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-body text-center">
+            <p>
+                El sistema permite administrar de manera organizada la información
+                relacionada con áreas, centros de formación, computadores, cursos,
+                instructores y aprendices.
+            </p>
+
+            <p>
+                Su objetivo es facilitar el registro, consulta, modificación y
+                eliminación de la información, permitiendo una gestión más
+                sencilla y organizada.
+            </p>
+        </div>
+    </div>
+
+</div>
+
 <br><br>
 
 <div class="container">

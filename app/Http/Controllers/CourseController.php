@@ -11,7 +11,7 @@ class CourseController extends Controller
 {
     //Se obtienen todos los CURSOS de la tabla courses
     public function index(){
-        $courses=Course::with(['area', 'training_center'])->get();
+        $courses=Course::with(['area', 'trainingCenter'])->get();
         
         return view('course.index', compact('courses'));
     }
@@ -75,4 +75,4 @@ class CourseController extends Controller
 
         return redirect()->route('course.index');
     }
-}
+ }

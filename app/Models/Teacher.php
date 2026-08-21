@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Training_center;
 
 class Teacher extends Model
 {
@@ -16,18 +17,18 @@ class Teacher extends Model
         'training_center_id'
     ];
 
-    
 
-        public function area(){
+    
+    public function area(){
         return $this->belongsTo(Area::class);
     }
 
     public function trainingCenter(){
-        return $this->belongsTo(TrainingCenter::class);
+        return $this->belongsTo(Training_center::class);
     }
 
     public function courses(){
         return $this->belongsToMany(Course::class);
     }
 
-}
+ }

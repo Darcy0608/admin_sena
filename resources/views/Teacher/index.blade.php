@@ -31,8 +31,8 @@
                     <td>{{ $teacher->id }}</td>
                     <td>{{ $teacher->name }}</td>
                     <td>{{ $teacher->email }}</td>
-                    <td>{{ $teacher->area_id }}</td>
-                    <td>{{ $teacher->training_center_id }}</td>
+                    <td>{{ optional($teacher->area)->name }}</td>
+                    <td>{{ optional($teacher->trainingCenter)->name }}</td>
 
                     <td>
                         <a href="{{ route('teacher.show', $teacher->id) }}">Mostrar</a>

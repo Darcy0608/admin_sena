@@ -51,9 +51,9 @@
 
 
                 <!-- Quienes Somos -->
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"> Quiénes somos </a>
-                </li>
+                <li class="nav-item"> 
+    <a class="nav-link text-white" href="{{ route('home') }}#quienes-somos"> Quiénes somos </a> 
+               </li>
 
 
             <!-- BUSCADOR -->
