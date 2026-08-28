@@ -39,6 +39,13 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="fw-bold">Numero de identificacion</label>
+                    <div class="form-control">
+                        {{ $apprentice['Identity_card'] }}
+                    </div>
+                </div>
+                
+                <div class="mb-3">
                     <label class="fw-bold">Nombre</label>
                     <div class="form-control">
                         {{ $apprentice['name'] }}

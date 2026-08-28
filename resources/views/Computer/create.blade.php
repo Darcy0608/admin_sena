@@ -11,7 +11,7 @@
         <label>
             Número:
             <br>
-            <input type="number" name="number" value="{{ old('number') }}">
+            <input type="text" name="number" value="{{ old('number') }}">
         </label>
         <br><br>
 

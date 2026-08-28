@@ -8,6 +8,13 @@
         @csrf
 
         <label>
+            Numero de identificacion:
+            <br>
+            <input type="text" name="Identity_card">
+        </label>
+        <br><br>
+
+        <label>
             Nombre:
             <br>
             <input type="text" name="name">
@@ -34,7 +41,7 @@
 
             @foreach($courses as $course)
                 <option value="{{$course->id}}">
-                    {{$course->name}}
+                    {{$course->course_number}}
                 </option>
             @endforeach
         </select>
@@ -45,7 +52,7 @@
             <option value="">Selecione un equipo</option>
             @foreach($computers as $computer)
                 <option value="{{$computer->id}}">
-                    {{$computer->name}}
+                    {{$computer->number}}
                 </option>
             @endforeach
 

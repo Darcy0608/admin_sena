@@ -86,3 +86,6 @@ Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('
 
 //  Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Ruta para buscar un aprendiz desde el navbar
+Route::get('/buscar-aprendiz', [ApprenticeController::class, 'search'])->name('apprentice.search');

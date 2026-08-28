@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('apprentices', function (Blueprint $table) {
             $table->id();
+            $table->string('Identity_card');
             $table->string('name');
             $table->string('email');
             $table->string('cell_number');
+            
 
 
             $table->unsignedBigInteger('course_id')->nullable();

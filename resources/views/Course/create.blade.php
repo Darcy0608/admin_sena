@@ -26,7 +26,7 @@
         <select name="area_id" id="area_id" class="form-control">
             <option value="">Seleccione un área</option>
             @foreach($areas as $area)
-                <option value="{{ $area->id }}" 
+                <option value="{{ $area->id }}" >v
                     {{ $area->name }}
                 </option>
             @endforeach
@@ -37,7 +37,7 @@
         <select name="training_center_id" id="training_center_id" class="form-control">
             <option value="">Seleccione un centro de formación</option>
             @foreach($training_centers as $training_center)
-                <option value="{{ $training_center->id }}" 
+                <option value="{{ $training_center->id }}"> 
                     {{ $training_center->name }}
                 </option>
             @endforeach

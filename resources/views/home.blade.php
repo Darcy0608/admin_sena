@@ -62,6 +62,18 @@
         box-shadow: 0 8px 20px rgba(0,0,0,0.20);
     }
 
+    .info-card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+    }
+
+    .info-card{
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
     .anuncio-card img{
         width: 100%;
         height: 200px;
@@ -291,7 +303,7 @@
     <div class="row">
 
         <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow">
+            <div class="card info-card h-100 shadow">
                 <div class="card-body text-center">
                     <i class="bi bi-eye-fill text-success fs-1"></i>
                     <h4 class="mt-3">Visión</h4>
@@ -304,7 +316,7 @@
         </div>
         
         <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow">
+            <div class="card info-card h-100 shadow">
                 <div class="card-body text-center">
                     <i class="bi bi-bullseye text-success fs-1"></i>
                     <h4 class="mt-3">Misión</h4>
@@ -317,7 +329,7 @@
         </div>
         
         <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow">
+            <div class="card info-card h-100 shadow">
                 <div class="card-body text-center">
                     <i class="bi bi-envelope-fill text-success fs-1"></i>
                     <h4 class="mt-3">Contáctanos</h4>

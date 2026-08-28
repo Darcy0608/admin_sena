@@ -9,8 +9,9 @@ use App\Models\Course;
 
 class ApprenticeController extends Controller
 {
-    //Traemos los aprendices y de una vez el curso y el computador
+    //Listamos los aprendices
     public function index(){
+        //Traemos los aprendices y de una vez el curso y el computador
         $apprentices = Apprentice::with(['course', 'computer'])->get();
 
         return view('apprentice.index', compact('apprentices'));
@@ -37,6 +38,27 @@ class ApprenticeController extends Controller
 
 
 
+    public function search (Request $request){
+        // Guardamos lo que escribió el usuario
+        $search = $request->search;
+
+        // Buscamos por nombre o documento
+        $apprentice = Apprentice::with(['course', 'computer'])
+            ->where('name', 'like', "%$search%")
+            ->orWhere('Identity_card', 'like', "%$search%")
+            ->first();
+
+        // Si encontramos el aprendiz, vamos a su información
+        if ($apprentice) {
+            return redirect()->route('apprentice.show', $apprentice);
+        }
+
+        // Si no encontramos resultados, regresamos a la página anterior
+        return back()->with('error', 'No se encontró ningún aprendiz.');
+    }
+
+
+
     public function show (Apprentice $apprentice){
 
         //$apprentice=Apprentice::find($id);
@@ -56,6 +78,7 @@ class ApprenticeController extends Controller
 
     public function update(Request $request, Apprentice $apprentice){
         
+        $apprentice->Identity_card = $request->Identity_card;
         $apprentice->name = $request->name;
         $apprentice->email = $request->email;
         $apprentice->cell_number = $request->cell_number;

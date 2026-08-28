@@ -10,11 +10,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Cell_number</th>
-                <th>Course_id</th>
-                <th>Computer_id</th>
+                <th>Número de Identificación</th>
+                <th>Nombre</th>
+                <th>Correo Electronico</th>
+                <th>Numero de celular</th>
+                <th>Id_curso</th>
+                <th>Id_computador</th>
                 <th colspan="3">Acción</th>
             </tr>
         </thead>
@@ -26,12 +27,13 @@
             @foreach ($apprentices as $apprentice)
                 <tr>
                     <td>{{ $apprentice->id }}</td>
+                    <td>{{ $apprentice->Identity_card}}</td>
                     <td>{{ $apprentice->name }}</td>
                     <td>{{ $apprentice->email }}</td>
                     <td>{{ $apprentice->cell_number }}</td>
                     
-                    <td>{{ $apprentice->course_number }}</td>
-                    <td>{{ $apprentice->computer->brand }}</td>
+                    <td>{{ $apprentice->course->course_number ?? 'Sin curso' }}</td>
+                    <td>{{ $apprentice->computer->brand ?? 'Sin computador'}}</td>
 
                     <td>
                         <a href="{{ route('apprentice.show', $apprentice->id) }}">Mostrar</a>

@@ -9,7 +9,12 @@
         @csrf
         @method('put')
 
-
+         <label>
+            Numero de identificacion:
+            <br>
+            <input type="text" name="Identity_card" value="{{ old('Identity_card', $apprentice->Identity_card)}}">
+        </label>
+        <br>
 
         <label>
             Nombre:
@@ -17,12 +22,14 @@
             <input type="text" name="name" value="{{ old('name', $apprentice->name)}}">
         </label>
         <br>
+
         <label>
             Email:
             <br>
             <input type="text" name="email"  value="{{ old('email', $apprentice->email)}}">
         </label>
         <br>
+
         <label>
             Numero de Celular:
             <br>

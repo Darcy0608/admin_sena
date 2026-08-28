@@ -9,6 +9,7 @@ class Apprentice extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'Identity_card',
         'name',
         'email',
         'cell_number',

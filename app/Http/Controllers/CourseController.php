@@ -11,7 +11,7 @@ class CourseController extends Controller
 {
     //Se obtienen todos los CURSOS de la tabla courses
     public function index(){
-        $courses=Course::with(['area', 'trainingCenter'])->get();
+        $courses = Course::with(['area', 'trainingCenter'])->get();
         
         return view('course.index', compact('courses'));
     }
@@ -21,10 +21,10 @@ class CourseController extends Controller
     //Devuelve todas las AREAS y todos los CENTROS DE FORMACION para llenar los select del formulario
     public function create(){
 
-        $training_centers = Training_center::all();
         $areas = Area::all();
+        $training_centers = Training_center::all();
 
-        return view('course.create', compact('training_centers', 'areas'));
+        return view('course.create', compact('areas', 'training_centers'));
     }
 
 

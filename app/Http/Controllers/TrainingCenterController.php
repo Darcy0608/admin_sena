@@ -8,7 +8,7 @@ use App\Models\Training_center;
 class TrainingCenterController extends Controller
 {
     public function index(){
-        $training_centers=Training_center::all();
+        $training_centers = Training_center::all();
 
         return view('training_center.index', compact('training_centers'));
     }
@@ -56,11 +56,11 @@ class TrainingCenterController extends Controller
 
 
     //Destroy encuentra el registro para luego eliminarlo..
-    public function destroy(Training_center $training_center){
+    public function destroy($id){
+        $training_centers = Training_center::findOrFail($id);
+        $training_centers->delete();
 
-        $training_center->delete();
-
-        return redirect()->route('training_center.index');
+        return redirect()->route('training_center.index')->with('success', 'Centro eliminado correctamente.');
     }
 
 }

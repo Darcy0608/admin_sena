@@ -23,3 +23,4 @@
         <p class="text-center">&copy; {{ date('Y') }} Sistema de Administración SENA / Versión 1.0</p>
     </div>
 </footer>
+
