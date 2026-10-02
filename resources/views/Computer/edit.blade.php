@@ -2,7 +2,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Actualizar Computador</h1>
+    <h1 class="fw-bold text-success m-0" style="color: #16780c !important;">
+       Actualizar Computador
+    </h1>
     <br>
 
     <form action="{{ route('computer.update', $computer) }}" method="POST">
@@ -29,7 +31,7 @@
         <br>
 
         <a href="{{ route('computer.index') }}" class="btn btn-success mb-3">
-            <i class="bi bi-arrow-left"></i> Volver
+            <i class="bi bi-box-arrow-left"></i></i> Volver </a>
         </a>
 
     </form>

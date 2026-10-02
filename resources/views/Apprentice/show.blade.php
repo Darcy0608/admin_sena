@@ -22,19 +22,24 @@
                         </div>
                     </div>
 
+                    {{-- Muestra el Nombre del Curso en lugar del ID --}}
                     <div class="col-md-6 mb-3">
                         <label class="fw-bold">Curso</label>
                         <div class="form-control">
-                            {{ $apprentice['course_id'] }}
+                            {{ $apprentice->course->course_number ?? $apprentice['course']['course_number'] ?? 'Sin curso' }}
                         </div>
                     </div>
 
+                    {{-- Muestra el Nombre del Computador en lugar del ID --}}
                     <div class="col-md-6 mb-3">
                         <label class="fw-bold">Computador</label>
                         <div class="form-control">
-                            {{ $apprentice['computer_id'] }}
+                            {{ $apprentice->computer->number  ?? $apprentice['computer']['number'] ?? 'Sin computador' }}
                         </div>
                     </div>
+
+                    
+                    
 
                 </div>
 
@@ -90,7 +95,7 @@
         <div class="d-flex justify-content-end mt-4">
             <br>
             <a href="{{ route('apprentice.index') }}" class="btn btn-success mb-3">
-            <i class="bi bi-arrow-left"></i> Volver </a>
+            <i class="bi bi-box-arrow-left"></i></i> Volver </a>
 
         </div>
         <br>

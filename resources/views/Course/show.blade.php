@@ -22,17 +22,19 @@
                         </div>
                     </div>
 
+                    {{-- Muestra el Nombre del Área en lugar del ID --}}
                     <div class="col-md-6 mb-3">
                         <label class="fw-bold">Área</label>
                         <div class="form-control">
-                            {{ $course['area_id'] }}
+                            {{ $course->area->name ?? $course['area']['name'] ?? 'Sin área' }}
                         </div>
                     </div>
 
+                    {{-- Muestra el Nombre del Centro de Formación en lugar del ID --}}
                     <div class="col-md-6 mb-3">
                         <label class="fw-bold">Centro de Formación</label>
                         <div class="form-control">
-                            {{ $course['training_center_id'] }}
+                            {{ $course->Trainig_center->name ?? $course['Trainig_center']['name'] ?? 'Sin Centro de Formación' }}
                         </div>
                     </div>
 
@@ -76,7 +78,7 @@
         <div class="d-flex justify-content-end mt-4">
             <br>
             <a href="{{ route('course.index') }}" class="btn btn-success mb-3">
-                <i class="bi bi-arrow-left"></i> Volver
+                <i class="bi bi-box-arrow-left"></i></i> Volver </a>
             </a>
 
         </div>

@@ -2,28 +2,51 @@
 
 @section('content')
 
-    <h1>Formulario Registrar Computador</h1>
+<h1 class="fw-bold text-success mb-4" style="color: #16780c !important;">
+    Formulario Registrar Computador
+</h1>
 
+<!-- Contenedor principal del formulario con diseño de tarjeta -->
+<div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
     <form action="{{ route('computer.store') }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
-        <label>
-            Número:
-            <br>
-            <input type="text" name="number" value="{{ old('number') }}">
-        </label>
-        <br><br>
+        <!-- Numero -->
+        <div class="mb-3">
+            <label for="number" class="form-label fw-semibold">Número:</label>
+            <input type="text"
+                class="form-control"
+                id="number"
+                name="number"
+                value="{{ old('number') }}"
+                placeholder="Ej: PC-01"
+                required>
+        </div>
 
-        <label>
-            Marca:
-            <br>
-            <input type="text" name="brand" value="{{ old('brand') }}">
-        </label>
-        <br><br>
+        <!-- Marca -->
+        <div class="mb-3">
+            <label for="brand" class="form-label fw-semibold">Marca:</label>
+            <input type="text"
+                class="form-control"
+                id="brand"
+                name="brand"
+                value="{{ old('brand') }}"
+                placeholder="Ej: Lenovo, HP, Dell..."
+                required>
+        </div>
 
-        <button type="submit" class="btn btn-success">Enviar Formulario</button>
+        <div class="d-flex gap-2 mt-4">
+            <button type="submit" class="btn btn-success fw-semibold px-4 rounded-3">
+                Enviar Formulario
+            </button>
+
+            <a href="{{ route('computer.index') }}" class="btn btn-outline-secondary rounded-3 px-3">
+                Cancelar
+            </a>
+        </div>
 
     </form>
+</div>
 
 @endsection

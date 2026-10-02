@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Actualizar Profesor</h1>
+    <h1 class="fw-bold text-success m-0" style="color: #16780c !important;">
+       Actualizar Profesor
+    </h1>
     <br>
 
     <form action="{{ route('teacher.update', $teacher) }}" method="POST">
@@ -39,11 +41,11 @@
 
         <br><br>
 
-        <button type="submit">Actualizar Profesor</button>
+        <button type="submit">Actualizar Instructor</button>
         <br><br>
 
         <a href="{{ route('teacher.index') }}" class="btn btn-success mb-3">
-            <i class="bi bi-arrow-left"></i> Volver 
+            <i class="bi bi-box-arrow-left"></i></i> Volver </a>
         </a>
 
     </form>

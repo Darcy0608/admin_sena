@@ -8,6 +8,10 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GlobalSearchController;
+
+use App\Http\Controllers\AuthController;
+
 
 
 /*
@@ -87,5 +91,24 @@ Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('
 //  Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Ruta para buscar un aprendiz desde el navbar
-Route::get('/buscar-aprendiz', [ApprenticeController::class, 'search'])->name('apprentice.search');
+// Búsqueda global del sistema
+Route::get('/buscar', [GlobalSearchController::class, 'search'])->name('global.search');
+
+
+// Rutas de inicio de sesión
+// Muestra el formulario de inicio de sesion
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+//Ruta para procesar las credenciales que el usuario envia desde el formulario
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+//Cierra la sesión del usuario actual
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Rutas de registro
+// Muestra el formulario de registro
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// Procesa y guarda el nuevo usuario en la base de datos
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+
+
+

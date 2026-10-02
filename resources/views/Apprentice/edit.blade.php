@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Actualizar Aprendiz</h1>
+
+    <h1 class="fw-bold text-success m-0" style="color: #16780c !important;">
+       Actualizar Aprendiz
+    </h1>
     <br>
 
     <form action="{{ route('apprentice.update', $apprentice) }}" method="POST">
@@ -41,7 +44,8 @@
         <br><br>
 
         <a href="{{ route('apprentice.index') }}" class="btn btn-success mb-3">
-            <i class="bi bi-arrow-left"></i> Volver </a>
+            <i class="bi bi-box-arrow-left"></i></i> Volver </a>
+            
 
     </form>
 @endsection

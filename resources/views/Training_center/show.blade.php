@@ -61,7 +61,8 @@
 
     <div class="d-flex justify-content-end mt-4">
 
-        <a href="{{ route('training_center.index') }}" class="btn btn-success"><i class="bi bi-arrow-left"></i> Volver </a>
+        <a href="{{ route('training_center.index') }}" class="btn btn-success">
+            <i class="bi bi-box-arrow-left"></i></i> Volver </a>
 
     </div>
     <br>

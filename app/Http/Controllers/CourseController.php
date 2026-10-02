@@ -10,15 +10,38 @@ use App\Models\Area;
 class CourseController extends Controller
 {
     //Se obtienen todos los CURSOS de la tabla courses
-    public function index(){
-        $courses = Course::with(['area', 'trainingCenter'])->get();
-        
-        return view('course.index', compact('courses'));
+    public function index(Request $request){
+        // Si la petición viene desde el modal de busqueda de Administracion
+    if ($request->filled('search')) {
+        $search = trim($request->input('search'));
+
+        // Busca coincidencia por el numero de curso/ficha (course_number) o jornada (day)
+        $course = Course::where('course_number', 'LIKE', "%{$search}%")
+                        ->orWhere('day', 'LIKE', "%{$search}%")
+                        ->first();
+
+        // Si encuentra el curso, redirige directo a la vista de detalle ('show')
+        if ($course) {
+            return redirect()->route('course.show', $course->id);
+        }
+
+        // Si no encuentra registro, redirige a la lista general avisando
+        return redirect()->route('course.index')->with('warning', 'No se encontró ningún curso o ficha con esa información.');
     }
+
+    // Carga normal del listado con sus relaciones optimizadas (area y centro)
+    $courses = Course::with(['area', 'trainingCenter'])->get(); 
+    return view('course.index', compact('courses'));
+
+
+    // Carga habitual de cursos
+    //$courses = Course::all();
+    //return view('course.index', compact('courses'));
+}
 
 
     
-    //Devuelve todas las AREAS y todos los CENTROS DE FORMACION para llenar los select del formulario
+    // Devuelve todas las AREAS y todos los CENTROS DE FORMACION para llenar los select del formulario
     public function create(){
 
         $areas = Area::all();
@@ -40,8 +63,11 @@ class CourseController extends Controller
 
 
     // Mostrar un SOLO CURSO
-    public function show(Course $course){
-    //$course = Course::find($id);
+    public function show(int $id){
+
+        // Cargamos el curso junto con su area y su centro de formación
+        $course = Course::with(['area', 'TrainingCenter'])->findOrFail($id);
+
     return view('course.show', compact('course'));
     }
 
