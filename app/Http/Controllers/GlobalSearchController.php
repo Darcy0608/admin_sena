@@ -18,7 +18,8 @@ class GlobalSearchController extends Controller
         $query = trim($request->input('query'));
 
         if (empty($query)) {
-            return back();
+            return response()->json(['message' => 'Debes ingresar un término de búsqueda']);
+            //return back();
         }
 
         // Buscamos Aprendices
@@ -50,6 +51,17 @@ class GlobalSearchController extends Controller
         $trainingCenters = Training_center::where('name', 'LIKE', "%{$query}%")->get();
 
         // Pasamos $trainingCenters en el compact para que coincida con $trainingCenters de tu vista search/results.blade.php
+        return response()->json([
+            'query' => $query,
+            'apprentices' => $apprentices,
+            'courses' => $courses,
+            'computers' => $computers,
+            'teachers' => $teachers,
+            'areas' => $areas,
+            'trainingCenters' => $trainingCenters
+        ]);
+        
+        /*
         return view('search.results', compact(
             'query',
             'apprentices',
@@ -59,5 +71,6 @@ class GlobalSearchController extends Controller
             'areas',
             'trainingCenters'
         ));
+        */
     }
 }

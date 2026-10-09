@@ -12,13 +12,15 @@ class Computer extends Model
     protected $fillable = [
         'number',
         'brand',
-        ];
+    ];
 
-        
 
-      public function apprentices(){
+
+    public function apprentices(){
         return $this->hasMany(Apprentice::class);
     }
-    
-    
+
+    public function trainingEnvironment(){
+        return $this->belongsTo(TrainingEnvironment::class);
+    }
 }

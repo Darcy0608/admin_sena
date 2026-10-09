@@ -14,7 +14,8 @@ class Course extends Model
         'course_number',
         'day',
         'area_id',
-        'training_center_id'
+        'training_center_id',
+        'training_environment_id'
     ];
 
     
@@ -25,6 +26,10 @@ class Course extends Model
 
     public function trainingCenter(){
         return $this->belongsTo(Training_center::class);
+    }
+
+    public function trainingEnvironment(){
+    return $this->belongsTo(TrainingEnvironment::class);
     }
 
     public function apprentices(){

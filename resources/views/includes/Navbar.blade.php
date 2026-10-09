@@ -70,7 +70,8 @@
     /* Estilos para el menú desplegable */
     .dropdown-menu {
         border-radius: 1rem !important;
-        padding: 0.5rem !important;  /* Bordes redondeados de la tarjeta */
+        padding: 0.5rem !important;
+        /* Bordes redondeados de la tarjeta */
         border: none !important;
     }
 
@@ -88,7 +89,8 @@
     .dropdown-menu .dropdown-item:active {
         background-color: #16780c !important;
         color: #ffffff !important;
-        transform: translateX(3px);   /* Pequeño desplazamiento a la derecha */
+        transform: translateX(3px);
+        /* Desplazamiento a la derecha */
     }
 </style>
 
@@ -152,15 +154,11 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="{{ route('training_center.index') }}"> Ver Centros de Formación</a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="{{ route('computer.index') }}"> Ver Computadores </a>
-                        </li>
-
-                        <li>
                             <a class="dropdown-item" href="{{ route('course.index') }}"> Ver Cursos </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{{ route('apprentice.index') }}"> Ver Aprendices </a>
                         </li>
 
                         <li>
@@ -168,7 +166,15 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="{{ route('apprentice.index') }}"> Ver Aprendices </a>
+                            <a class="dropdown-item" href="{{ route('computer.index') }}"> Ver Computadores </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{{ route('training-center.index') }}"> Ver Centros de Formación</a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{{ route('training_environment.index') }}"> Ver Ambientes de Formación</a>
                         </li>
                     </ul>
                 </li>
@@ -186,7 +192,7 @@
             <!-- OPCIONES DE LA DERECHA -->
             <ul class="navbar-nav ms-auto align-items-center">
 
-                <!-- BUSCADOR CON ALTO CONTRASTE Y SOMBRA -->
+                <!-- BUSCADOR -->
                 <form class="d-flex my-1"
                     role="search"
                     method="GET"
@@ -209,7 +215,7 @@
 
 
                 @guest
-                <!-- MOSTRAR SI NO HA INICIADO SESIÓN -->
+                <!-- SE MUESTRA SI NO SE HA INICIADO SESIÓN -->
                 <li class="nav-item">
                     <a class="nav-link text-white nav-link-pill fw-bold"
                         href="{{ route('login') }}">
@@ -218,7 +224,7 @@
                 </li>
                 @endguest
 
-                 @guest
+                @guest
                 <!-- MOSTRAR SI NO SE A REGISTRADO -->
                 <li class="nav-item">
                     <a class="nav-link text-white nav-link-pill fw-bold"

@@ -22,16 +22,19 @@ class CourseController extends Controller
 
         // Si encuentra el curso, redirige directo a la vista de detalle ('show')
         if ($course) {
-            return redirect()->route('course.show', $course->id);
+            return response()->json($course);
+            //return redirect()->route('course.show', $course->id);
         }
 
         // Si no encuentra registro, redirige a la lista general avisando
-        return redirect()->route('course.index')->with('warning', 'No se encontró ningún curso o ficha con esa información.');
+        return response()->json(['message' => 'No se encontró ningún curso o ficha con esa información']);
+        //return redirect()->route('course.index')->with('warning', 'No se encontró ningún curso o ficha con esa información.');
     }
 
     // Carga normal del listado con sus relaciones optimizadas (area y centro)
     $courses = Course::with(['area', 'trainingCenter'])->get(); 
-    return view('course.index', compact('courses'));
+    return response()->json($courses);
+    //return view('course.index', compact('courses'));
 
 
     // Carga habitual de cursos
@@ -56,8 +59,8 @@ class CourseController extends Controller
     public function store(Request $request){
 
         $course = Course::create($request->all());
-
-        return redirect()->route('course.index');
+        return response()->json(['message' => '¡Curso creado con éxito!', 'course' => $course]);
+        //return redirect()->route('course.index');
     }
 
 
@@ -67,8 +70,9 @@ class CourseController extends Controller
 
         // Cargamos el curso junto con su area y su centro de formación
         $course = Course::with(['area', 'TrainingCenter'])->findOrFail($id);
-
-    return view('course.show', compact('course'));
+        
+        return response()->json($course);
+        //return view('course.show', compact('course'));
     }
 
 
@@ -76,7 +80,9 @@ class CourseController extends Controller
     //Obtener un curso especifico para mostrarlo en el formulario editar
     public function edit(Course $course){
     //Encuentro el Curso
-    return view('course.edit', compact('course'));
+    return response()->json($course);
+    
+    //return view('course.edit', compact('course'));
     }
 
 
@@ -90,7 +96,8 @@ class CourseController extends Controller
         $course->training_center_id = $request->training_center_id;
         $course->save();
 
-        return redirect()->route('course.index');
+        return response()->json(['message' => '¡Curso actualizado correctamente!', 'course' => $course]);
+        //return redirect()->route('course.index');
     }
 
 
@@ -99,6 +106,7 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return redirect()->route('course.index');
+        return response()->json(['message' => '¡Curso eliminado correctamente!']);
+        //return redirect()->route('course.index');
     }
  }

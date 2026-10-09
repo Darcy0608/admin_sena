@@ -7,7 +7,7 @@
 </h1>
 <br>
 
-<form action="{{ route('training_center.update', $training_center) }}" method="POST">
+<form action="{{ route('training-center.update', $training_center) }}" method="POST">
 
     @csrf
     @method('put')
@@ -30,7 +30,7 @@
     <br>
     <br>
 
-    <a href="{{ route('training_center.index') }}" class="btn btn-success mb-3">
+    <a href="{{ route('training-center.index') }}" class="btn btn-success mb-3">
         <i class="bi bi-box-arrow-left"></i></i> Volver </a>
     </a>
 

@@ -20,17 +20,23 @@ class TeacherController extends Controller
 
         // Si existe coincidencia, te envía directo a la vista de detalle (show)
         if ($teacher) {
-            return redirect()->route('teacher.show', $teacher->id);
+            return response()->json($teacher);    
+            //return redirect()->route('teacher.show', $teacher->id);
         }
 
         // Si no encuentra registro, redirige a la tabla avisando
-        return redirect()->route('teacher.index')->with('warning', 'No se encontró ningún instructor con esa información.');
+        return response()->json(['message' => 'No se encontró ningún instructor con esa información']);
+        
+        //return redirect()->route('teacher.index')->with('warning', 'No se encontró ningún instructor con esa información.');
     }
 
-    // Carga normal de instructores
+    // Carga todos los instructores
     $teachers = Teacher::all(); 
-    return view('teacher.index', compact('teachers'));
+
+    // Retorna los instructores en formato JSON
+    return response()->json($teachers);
 }
+
 
 
     public function create(){
@@ -42,29 +48,48 @@ class TeacherController extends Controller
     }
 
 
-    public function store(Request $request){
 
-        $teacher = Teacher::create($request->all());
+    public function store(Request $request)
+{
+    // Validar los datos recibidos
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'area_id' => 'required|integer|exists:areas,id',
+        'training_center_id' => 'required|integer|exists:training_centers,id',
+    ]);
 
-        return redirect()->route('teacher.index');
-    }
+    // Crear el instructor con los datos validados
+    $teacher = Teacher::create($validated);
+
+    // Retornar la respuesta en formato JSON
+    return response()->json([
+        'message' => '¡Instructor/a creado con éxito!',
+        'teacher' => $teacher
+    ]);
+}
 
 
 
-    public function show($id){
+    public function show( int $id){
 
     // Cargamos el instructor junto con su área y su centro de formación
     $teacher = Teacher::with(['area', 'trainingCenter'])->findOrFail($id);
 
-    return view('teacher.show', compact('teacher'));
+    return response()->json($teacher);
+    //return view('teacher.show', compact('teacher'));
     }
 
 
 
     public function edit(Teacher $teacher){
 
+    $training_centers = Training_center::all();
+    $areas = Area::all();
+
     //Encuentro el Instructor
-    return view('teacher.edit', compact('teacher'));
+    return response()->json(['teacher' => $teacher, 'training_centers' => $training_centers, 'areas' => $areas]);
+    //return view('teacher.edit', compact('teacher'));
     }
 
 
@@ -77,7 +102,8 @@ class TeacherController extends Controller
         $teacher->training_center_id = $request->training_center_id;
         $teacher->save();
 
-        return redirect()->route('teacher.index');
+        return response()->json(['message' => '¡Instructor/a actualizado correctamente!', 'teacher' => $teacher]);
+        //return redirect()->route('teacher.index');
     }
 
 
@@ -86,6 +112,7 @@ class TeacherController extends Controller
 
         $teacher->delete();
 
-        return redirect()->route('teacher.index');
+        return response()->json(['message' => 'Instructor/a eliminado correctamente']);
+        //return redirect()->route('teacher.index');
     }
  }

@@ -8,7 +8,7 @@
 
 <!-- Contenedor principal con diseño de tarjeta -->
 <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-    <form action="{{ route('training_center.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('training-center.store') }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -41,7 +41,7 @@
                 Enviar Formulario
             </button>
 
-            <a href="{{ route('training_center.index') }}" class="btn btn-outline-secondary rounded-3 px-3">
+            <a href="{{ route('training-center.index') }}" class="btn btn-outline-secondary rounded-3 px-3">
                 Cancelar
             </a>
         </div>

@@ -7,7 +7,9 @@ use App\Http\Controllers\TrainingCenterController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TrainingEnvironmentController;
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\GlobalSearchController;
 
 use App\Http\Controllers\AuthController;
@@ -49,14 +51,23 @@ Route::get('computer/{computer}/editar',[ComputerController::class,'edit'])->nam
 
 
 // Training_center
-Route::get('training_center/create', [TrainingCenterController::class, 'create'])->name('training_center.create');
-Route::post('training_center/store', [TrainingCenterController::class, 'store'])->name('training_center.store');
-Route::get('training_center/index',[TrainingCenterController::class,'index'])->name('training_center.index');
-Route::get('training_center/show/{training_center}', [TrainingCenterController::class, 'show'])->name('training_center.show');
-Route::put('training_center/{training_center}',[TrainingCenterController::class,'update'])->name('training_center.update');
-Route::delete('training_center/{training_center}',[TrainingCenterController::class,'destroy'])->name('training_center.destroy');
-Route::get('training_center/{training_center}/editar',[TrainingCenterController::class,'edit'])->name('training_center.edit');
+Route::get('training-center/create', [TrainingCenterController::class, 'create'])->name('training-center.create');
+Route::post('training-center/store', [TrainingCenterController::class, 'store'])->name('training-center.store');
+Route::get('training-center/index',[TrainingCenterController::class,'index'])->name('training-center.index');
+Route::get('training-center/show/{training_center}', [TrainingCenterController::class, 'show'])->name('training-center.show');
+Route::put('training-center/{training_center}',[TrainingCenterController::class,'update'])->name('training-center.update');
+Route::delete('training-center/{training_center}',[TrainingCenterController::class,'destroy'])->name('training-center.destroy');
+Route::get('training-center/{training_center}/editar',[TrainingCenterController::class,'edit'])->name('training-center.edit');
 
+
+// Training_environment (Ambientes)
+Route::get('training_environment/create', [TrainingEnvironmentController::class, 'create'])->name('training_environment.create');
+Route::post('training_environment/store', [TrainingEnvironmentController::class, 'store'])->name('training_environment.store');
+Route::get('training_environment/index', [TrainingEnvironmentController::class, 'index'])->name('training_environment.index');
+Route::get('training_environment/show/{training_environment}', [TrainingEnvironmentController::class, 'show'])->name('training_environment.show');
+Route::put('training_environment/{training_environment}', [TrainingEnvironmentController::class, 'update'])->name('training_environment.update');
+Route::delete('training_environment/{training_environment}', [TrainingEnvironmentController::class, 'destroy'])->name('training_environment.destroy');
+Route::get('training_environment/{training_environment}/editar', [TrainingEnvironmentController::class, 'edit'])->name('training_environment.edit');
 
 // Course
 Route::get('course/create', [CourseController::class, 'create'])->name('course.create');
@@ -90,7 +101,6 @@ Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('
 
 //  Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 // Búsqueda global del sistema
 Route::get('/buscar', [GlobalSearchController::class, 'search'])->name('global.search');
 

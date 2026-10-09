@@ -9,11 +9,12 @@ class ComputerController extends Controller
 {
     // Muestra el listado de todos los computadores
     public function index(){
-        
         $computers = Computer::all();
 
-        return view('computer.index', compact('computers'));
+        return response()->json($computers);
+        //return view('computer.index', compact('computers'));
     }
+
 
 
     // Muestra el formulario para registrar un nuevo computador
@@ -28,23 +29,29 @@ class ComputerController extends Controller
 
         $computer = Computer::create($request->all());
         // Redirige al index enviando el mensaje de exito para la alerta flotante
-        return redirect()->route('computer.index')->with('success', '¡Computador creado con exito!');
+        return response()->json(['message' => '¡Computador creado con éxito!', 'computer' => $computer]);        
+        //return redirect()->route('computer.index')->with('success', '¡Computador creado con exito!');
     }
+
 
 
     // Muestra los detalles de un computador en especifico
     public function show(Computer $computer){
-
-        return view('computer.show', compact('computer'));
+        
+        return response()->json($computer);    
+        //return view('computer.show', compact('computer'));
     }
+
 
 
     // Muestra el formulario para editar un computador existente
     public function edit(Computer $computer){
 
         //Encuentro el Computador
-        return view('computer.edit', compact('computer'));
+        return response()->json($computer);
+        //return view('computer.edit', compact('computer'));
     }
+
 
 
     // Actualiza la informacion del computador en la base de datos
@@ -55,7 +62,8 @@ class ComputerController extends Controller
         $computer->save();
 
         // Redirige al index enviando el mensaje de exito para la alerta flotante
-        return redirect()->route('computer.index')->with('success', '¡Computador actualizado correctamente!');
+        return response()->json(['message' => '¡Computador actualizado correctamente!', 'computer' => $computer]);
+        //return redirect()->route('computer.index')->with('success', '¡Computador actualizado correctamente!');
     }
 
 
@@ -65,6 +73,7 @@ class ComputerController extends Controller
         $computer->delete();
 
         // Redirige al index mostrando la alerta de exito correspondiente
-        return redirect()->route('computer.index')->with('success', 'Computador eliminado correctamente.');
+        return response()->json(['message' => 'Computador eliminado correctamente.']);
+        //return redirect()->route('computer.index')->with('success', 'Computador eliminado correctamente.');
     }
 }

@@ -11,7 +11,7 @@
             <h1 class="fw-bold text-success m-0" style="color: #16780c !important;">
                 Listado de Centros de Formación
             </h1>
-            <a href="{{ route('training_center.create') }}" class="btn text-white fw-semibold px-3 py-2 shadow-sm" style="background-color: #16780c;">
+            <a href="{{ route('training-center.create') }}" class="btn text-white fw-semibold px-3 py-2 shadow-sm" style="background-color: #16780c;">
                 <i class="bi bi-plus-lg me-1"></i> Nuevo Centro de Formación </a>
         </div>
 
@@ -34,15 +34,15 @@
                     <td>{{ $training_center->location }}</td>
 
                     <td>
-                        <a href="{{ route('training_center.show', $training_center->id) }}">Mostrar</a>
+                        <a href="{{ route('training-center.show', $training_center->id) }}">Mostrar</a>
                     </td>
 
                     <td>
-                        <a href="{{ route('training_center.edit', $training_center->id) }}">Editar</a>
+                        <a href="{{ route('training-center.edit', $training_center->id) }}">Editar</a>
                     </td>
 
                     <td>
-                        <form action="{{ route('training_center.destroy', $training_center->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('training-center.destroy', $training_center->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" title="Eliminar Aprendiz">
