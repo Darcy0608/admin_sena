@@ -174,7 +174,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="{{ route('training_environment.index') }}"> Ver Ambientes de Formación</a>
+                            <a class="dropdown-item" href="{{ route('training-environment.index') }}"> Ver Ambientes de Formación</a>
                         </li>
                     </ul>
                 </li>

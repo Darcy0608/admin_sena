@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="fw-bold text-success mb-4" style="color: #16780c !important;">
-    Formulario Registrar Profesores
+    Formulario Registrar Instructores
 </h1>
 
 <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">

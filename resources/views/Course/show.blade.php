@@ -26,7 +26,7 @@
                     <div class="col-md-6 mb-3">
                         <label class="fw-bold">Área</label>
                         <div class="form-control">
-                            {{ $course->area->name ?? $course['area']['name'] ?? 'Sin área' }}
+                            {{ $course->area->name ?? 'Sin área' }}
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                     <div class="col-md-6 mb-3">
                         <label class="fw-bold">Centro de Formación</label>
                         <div class="form-control">
-                            {{ $course->Trainig_center->name ?? $course['Trainig_center']['name'] ?? 'Sin Centro de Formación' }}
+                            {{ $course->Trainig_center->name ?? 'Sin Centro de Formación' }}
                         </div>
                     </div>
 

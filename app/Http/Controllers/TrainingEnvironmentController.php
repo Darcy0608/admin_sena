@@ -22,7 +22,7 @@ class TrainingEnvironmentController extends Controller
     // Muestra el formulario para crear un ambiente nuevo
     public function create(){
 
-        return view('training_environment.create');
+        return view('training-environment.create');
     }
 
 

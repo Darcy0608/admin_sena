@@ -9,6 +9,9 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TrainingEnvironmentController;
+
+use App\Http\Controllers\GlobalSearchController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,9 +46,9 @@ Route::delete('computer/{computer}', [ComputerController::class, 'destroy'])->na
 // Training Center
 Route::get('training-center/index', [TrainingCenterController::class, 'index'])->name('api.v1.training-center.index');
 Route::post('training-center', [TrainingCenterController::class, 'store'])->name('api.v1.training-center.store');
-Route::get('training-center/{training-center}', [TrainingCenterController::class, 'show'])->name('api.v1.training_center.show');
-Route::put('training-center/{training-center}', [TrainingCenterController::class, 'update'])->name('api.v1.training_center.update');
-Route::delete('training-center/{training-center}', [TrainingCenterController::class, 'destroy'])->name('api.v1.training_center.destroy');
+Route::get('training-center/{training_center}', [TrainingCenterController::class, 'show'])->name('api.v1.training-center.show');
+Route::put('training-center/{training_center}', [TrainingCenterController::class, 'update'])->name('api.v1.training-center.update');
+Route::delete('training-center/{training_center}', [TrainingCenterController::class, 'destroy'])->name('api.v1.training-center.destroy');
 
 // Apprentice 
 Route::get('apprentice/index', [ApprenticeController::class, 'index'])->name('api.v1.apprentice.index');
@@ -68,12 +71,17 @@ Route::get('teacher/{teacher}', [TeacherController::class, 'show'])->name('api.v
 Route::put('teacher/{teacher}', [TeacherController::class, 'update'])->name('api.v1.teacher.update');
 Route::delete('teacher/{teacher}', [TeacherController::class, 'destroy'])->name('api.v1.teacher.destroy');
 
-
+// Training-envitonment
 Route::get('training-environment/index', [TrainingEnvironmentController::class, 'index'])->name('api.v1.training-environment.index');
 Route::post('training-environment', [TrainingEnvironmentController::class, 'store'])->name('api.v1.training-environment.store');
-Route::get('training-environment/{training-environment}', [TrainingEnvironmentController::class, 'show'])->name('api.v1.training-environment.show');
-Route::put('training-environment/{training-environment}', [TrainingEnvironmentController::class, 'update'])->name('api.v1.training-environment.update');
-Route::delete('training-environment/{training-environment}', [TrainingEnvironmentController::class, 'destroy'])->name('api.v1.training-environment.destroy');
+Route::get('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'show'])->name('api.v1.training-environment.show');
+Route::put('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'update'])->name('api.v1.training-environment.update');
+Route::delete('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'destroy'])->name('api.v1.training-environment.destroy');
 
+// Búsqueda global
+Route::get('buscar', [GlobalSearchController::class, 'search'])->name('api.global.search');
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 
 
