@@ -16,7 +16,9 @@ class TrainingEnvironment extends Model
         'capacity',
         'location',
         'status',
-        'urlFoto'
+        
+        'imagen_url',
+        'imagen_public_id',
     ];
 
     public function course(){

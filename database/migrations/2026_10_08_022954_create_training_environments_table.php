@@ -24,6 +24,15 @@ return new class extends Migration
             // Agregamos el campo de la foto 
             $table->string('urlFoto')->nullable();
 
+            // Agregamos la relacion con l atabla courses
+            $table->unsignedBigInteger('course_id')->nullable();
+
+            $table->foreign('course_id')
+                ->references('id')
+                ->on('courses')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
             $table->timestamps();
         });
     }

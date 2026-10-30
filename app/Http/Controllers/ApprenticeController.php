@@ -58,7 +58,7 @@ class ApprenticeController extends Controller
     }
 
 
-    // Realiza una búsqueda específica de un aprendiz
+    // Realiza una busqueda específica de un aprendiz
     public function search(Request $request)
     {
         // Guardamos lo que escribio el usuario

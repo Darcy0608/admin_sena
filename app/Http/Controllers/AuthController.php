@@ -14,14 +14,12 @@ class AuthController extends Controller
     // LOGIN 
 
     // Muestra la vista de inicio de sesion
-    public function showLoginForm()
-    {
+    public function showLoginForm(){
         return view('auth.login');
     }
 
     // Procesa el inicio de sesion
-    public function login(Request $request)
-    {
+    public function login(Request $request){
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],

@@ -61,13 +61,13 @@ Route::get('training-center/{training_center}/editar',[TrainingCenterController:
 
 
 // Training_environment (Ambientes)
-Route::get('training_environment/create', [TrainingEnvironmentController::class, 'create'])->name('training_environment.create');
-Route::post('training_environment/store', [TrainingEnvironmentController::class, 'store'])->name('training_environment.store');
-Route::get('training_environment/index', [TrainingEnvironmentController::class, 'index'])->name('training_environment.index');
-Route::get('training_environment/show/{training_environment}', [TrainingEnvironmentController::class, 'show'])->name('training_environment.show');
-Route::put('training_environment/{training_environment}', [TrainingEnvironmentController::class, 'update'])->name('training_environment.update');
-Route::delete('training_environment/{training_environment}', [TrainingEnvironmentController::class, 'destroy'])->name('training_environment.destroy');
-Route::get('training_environment/{training_environment}/editar', [TrainingEnvironmentController::class, 'edit'])->name('training_environment.edit');
+Route::get('training-environment/create', [TrainingEnvironmentController::class, 'create'])->name('training-environment.create');
+Route::post('training-environment/store', [TrainingEnvironmentController::class, 'store'])->name('training-environment.store');
+Route::get('training-environment/index', [TrainingEnvironmentController::class, 'index'])->name('training-environment.index');
+Route::get('training-environment/show/{training_environment}', [TrainingEnvironmentController::class, 'show'])->name('training-environment.show');
+Route::put('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'update'])->name('training-environment.update');
+Route::delete('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'destroy'])->name('training-environment.destroy');
+Route::get('training-environment/{training_environment}/editar', [TrainingEnvironmentController::class, 'edit'])->name('training-environment.edit');
 
 // Course
 Route::get('course/create', [CourseController::class, 'create'])->name('course.create');

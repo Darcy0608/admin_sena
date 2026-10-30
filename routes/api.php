@@ -27,6 +27,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Búsqueda global
+Route::get('buscar', [GlobalSearchController::class, 'search'])->name('api.global.search');
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+
+
 
 // Area
 Route::get('area/index', [AreaController::class, 'index'])->name('api.v1.area.index');
@@ -78,10 +85,5 @@ Route::get('training-environment/{training_environment}', [TrainingEnvironmentCo
 Route::put('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'update'])->name('api.v1.training-environment.update');
 Route::delete('training-environment/{training_environment}', [TrainingEnvironmentController::class, 'destroy'])->name('api.v1.training-environment.destroy');
 
-// Búsqueda global
-Route::get('buscar', [GlobalSearchController::class, 'search'])->name('api.global.search');
-
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
 
 

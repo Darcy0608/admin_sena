@@ -9,9 +9,13 @@ class Training_center extends Model
 {
     use HasFactory;
     
+    //Campos que se van a asignacion masiva
     protected $fillable = [
         'name',
         'location',
+
+        'imagen_url',
+        'imagen_public_id',
         ];
 
 

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('number');
             $table->string('brand');
+            
+            $table->string('imagen_url');
+            $table->string('imagen_public_id');
             $table->timestamps();
         });
     }

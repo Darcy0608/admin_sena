@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Training_center;
+use Cloudinary\Cloudinary;
 
 class TrainingCenterController extends Controller
 {
@@ -15,14 +16,15 @@ class TrainingCenterController extends Controller
 
         // Retoramos la vista index y le pasamos la variable con los dato
         return response()->json($training_centers);
-        
+
         //return view('training-center.index', compact('training_centers'));
     }
 
 
 
     // Mostramos el formulario para crear un nuevo centro de formación
-    public function create(){
+    public function create()
+    {
 
         return view('training-center.create');
     }
@@ -32,16 +34,56 @@ class TrainingCenterController extends Controller
     // Almacena un nuevo registro en la base de datos
     public function store(Request $request){
 
-        $training_center = Training_center::create($request->all());
+        // Se validan los campos 
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'imagen' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
+        ]);
+
+        // Obtenemos la imagen 
+        $file = $request->file('imagen');
+
+        $cloudinary = new Cloudinary([
+            'cloud' => [
+                'cloud_name' => config('services.cloudinary.cloud_name'),
+                'api_key' => config('services.cloudinary.api_key'),
+                'api_secret' => config('services.cloudinary.api_secret'),
+            ],
+            'url' => ['secure' => true],
+        ]);
+
+        $resultado = $cloudinary->uploadApi()->upload(
+            $file->getRealPath(),
+            [
+                'folder' => 'categories',
+                'resource_type' => 'image',
+            ]
+        );
+
+        //$training_center = Training_center::create($request->all());
+        // Guardamos los datos del centro de formación
+        $training_center = Training_center::create([
+            'name' => $request->name,
+            'location' => $request->location,
+            'imagen_url' => $resultado['secure_url'],
+            'imagen_public_id' => $resultado['public_id'],
+        ]);
+        
 
         // Redirige al index enviando un mensaje flash de exito para la alerta flotante
-        return response()->json(['message' => '¡Centro de formación creado con éxito!','training_center' => $training_center]);
+        return response()->json([
+            'message' => '¡Centro de formación creado con éxito!', 
+            'training_center' => $training_center
+            ]);
         //return redirect()->route('training-center.index')->with('success', '¡Centro de formacion creado con exito!');
     }
 
 
+    
     // Muestra los detalles de un registro en específico
-    public function show(Training_center $training_center){
+    public function show(Training_center $training_center)
+    {
 
         return response()->json($training_center);
         //return view('training-center.show', compact('training_center'));
@@ -49,7 +91,8 @@ class TrainingCenterController extends Controller
 
 
     // Muestra el formulario para editar un centro de formacion existente
-    public function edit(Training_center $training_center){
+    public function edit(Training_center $training_center)
+    {
 
         // Encuentra el Centro de Formacion y retorna la vista de edicion 
         return response()->json($training_center);
@@ -58,7 +101,8 @@ class TrainingCenterController extends Controller
 
 
     // Actualiza un registro existente en la base de datos
-    public function update(Request $request, Training_center $training_center){
+    public function update(Request $request, Training_center $training_center)
+    {
 
         $training_center->name = $request->name;
         $training_center->location = $request->location;
@@ -66,19 +110,20 @@ class TrainingCenterController extends Controller
 
         // Redirige al index enviando el mensaje de exito
         return response()->json(['message' => '¡Centro de formación actualizado correctamente!', 'training_center' => $training_center]);
-        
+
         //return redirect()->route('training-center.index')->with('success', '¡Centro de formacion actualizado correctamente!');
     }
 
 
     //Destroy encuentra el registro para luego eliminarlo..
-    public function destroy(Training_center $training_center){
-        
+    public function destroy(Training_center $training_center)
+    {
+
         $training_center->delete();
 
         // Redirige al index mostrando la alerta de exito correspondiente
         return response()->json(['message' => 'Centro eliminado correctamente']);
-        
+
         //return redirect()->route('training-center.index')->with('success', 'Centro eliminado correctamente.');
     }
 }
